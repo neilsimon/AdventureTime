@@ -2,6 +2,7 @@
 
 # Locations. All locations have to have the description. If a location is not an end state it must also have verbs.
 locations = {
+    "start location": "cave",
     "cave": {
         "description": "You are inside a cave. Outside the sun is shining brilliantly and it hurts your eyes. The darkness of the cave further along stares back at you.",
         "verbs": {
@@ -41,7 +42,7 @@ locations = {
     "null": ""
     }
 
-currentLocation = "cave"
+currentLocation = locations["start location"]
 
 def describeLocation(location):
     if location in locations:
@@ -60,7 +61,7 @@ def getAction(location):
             
         verbs = locations[location]["verbs"].keys()
         print("You can: "+ ','.join([str(elem) for elem in verbs]))
-        action = raw_input()
+        action = input()
         while action not in verbs:
             print("Invalid action. What do you want to do?")
             print("You can: "+ ','.join([str(elem) for elem in verbs]))
