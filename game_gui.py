@@ -37,9 +37,9 @@ window.rowconfigure(1, minsize=100, weight=1)
 # Layout for image window
 pictureFrame = tk.Frame(master=window)
 pictureFrame.grid(column=1, row=0, rowspan=2, sticky="nsew")
-picture = False;
 pictureLabel = tk.Label(master=pictureFrame)
 pictureLabel.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+picture = None
 
 # Layout for the description frame
 descriptionFrame = tk.Frame(master=window)
