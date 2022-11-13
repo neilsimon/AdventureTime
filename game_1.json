@@ -2,6 +2,7 @@
   "start location": "cave",
   "cave": {
     "description": "You are inside a cave. Outside the sun is shining brilliantly and it hurts your eyes. The darkness of the cave further along stares back at you.",
+    "image": "cave.png",
     "verbs": {
       "go deeper": "deeper cave",
       "go outside": "outside cave"
@@ -22,13 +23,15 @@
     }
   },
   "the forest": {
-    "description": "The sun's harsh rays are blocked by the canopy of lush green trees. You feel at home, among the mosses, lichen and bark."
+    "description": "The sun's harsh rays are blocked by the canopy of lush green trees. You feel at home, among the mosses, lichen and bark.",
+    "image": "the forest.png"
   },
   "die of thirst": {
     "description": "Over days you find yourself slowly dying of thirst, your body's aches getting worse with every passing moment until you no longer have the will to even try. You lie there, and die, in the comfort that you will make a nice meal for a grue."
   },
   "feed a grue": {
-    "description": "You call out into the darkness, making your best grue mating call. It only takes a few moments for a dozen grue to find you, and they quickly start making short work of you. Their teeth rend your flesh from your body, one excruciating bite at a time, but at least it will be all over soon."
+    "description": "You call out into the darkness, making your best grue mating call. It only takes a few moments for a dozen grue to find you, and they quickly start making short work of you. Their teeth rend your flesh from your body, one excruciating bite at a time, but at least it will be all over soon.",
+    "image": "feed a grue.png"
   },
   "place": {
     "description": "The description of the place goes here.",
