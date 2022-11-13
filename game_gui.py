@@ -2,10 +2,26 @@
 
 import json
 import sys
+import os
+import argparse
+
 import tkinter as tk
 
-# Open the first argument as a file with the locations in json format
-gameFile = open(sys.argv[1])
+# Load the settings
+if os.path.exists("settings.json"):
+    settings = json.load(open("settings.json"))
+else:
+    settings = {}
+parser = argparse.ArgumentParser(
+    prog = 'Game',
+    description = 'Simple adventure game system')
+parser.add_argument('-g', '--gamefile', default=argparse.SUPPRESS)
+parser.add_argument('-a', '--assetsdirectory', default=argparse.SUPPRESS)
+args = parser.parse_args()
+settings.update(vars(args))
+
+# Open the game file with the locations in json format
+gameFile = open(settings['gamefile'])
 # Parse the file into locations
 locations = json.load(gameFile)
 # Set the current location from the start location in the locations file
@@ -65,13 +81,16 @@ def addDescriptionText(text):
     descriptionLabel.configure(state="disabled")
     descriptionLabel.see(tk.END)
 
-def setImage(image):
+# Set the image displayed
+def setImage(imageFile):
     global pictureLabel, picture
     removeImage()
-    picture = tk.PhotoImage(file="assets/images/" + image)
+    imagePath = os.path.join(settings["assetsdirectory"], "images", imageFile)
+    picture = tk.PhotoImage(file=imagePath)
     pictureLabel = tk.Label(master=pictureFrame, image=picture)
     pictureLabel.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
+# Remove the image being displayed
 def removeImage():
     global pictureLabel
     if pictureLabel:

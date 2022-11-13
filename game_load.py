@@ -2,9 +2,24 @@
 
 import json
 import sys
+import os
+import argparse
 
-# Open the first argument as a file with the locations in json format
-gameFile = open(sys.argv[1])
+# Load the settings
+if os.path.exists("settings.json"):
+    settings = json.load(open("settings.json"))
+else:
+    settings = {}
+parser = argparse.ArgumentParser(
+    prog = 'Game',
+    description = 'Simple adventure game system')
+parser.add_argument('-g', '--gamefile', default=argparse.SUPPRESS)
+parser.add_argument('-a', '--assetsdirectory', default=argparse.SUPPRESS)
+args = parser.parse_args()
+settings.update(vars(args))
+
+# Open the game file with the locations in json format
+gameFile = open(settings['gamefile'])
 # Parse the file into locations
 locations = json.load(gameFile)
 # Set the current location from the start location in the locations file
