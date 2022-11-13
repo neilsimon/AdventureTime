@@ -31,7 +31,7 @@ def getAction(location):
         while action not in verbs:
             print("Invalid action. What do you want to do?")
             print("You can: "+ ','.join([str(elem) for elem in verbs]))
-            action = raw_input()
+            action = input()
         return locations[location]["verbs"][action]
     else:
         print("Error: location does not exist: " + location)
