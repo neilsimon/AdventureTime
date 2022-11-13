@@ -14,13 +14,20 @@ startLocation = locations["start location"]
 # Layout for the main window
 window = tk.Tk()
 window.columnconfigure(0, minsize=200, weight=1)
+window.columnconfigure(1, minsize=300, weight=1)
 window.rowconfigure(0, minsize=200, weight=1)
-window.rowconfigure(1, minsize=200, weight=1)
+window.rowconfigure(1, minsize=100, weight=1)
+
+# Layout for image window
+pictureFrame = tk.Frame(master=window)
+pictureFrame.grid(column=1, row=0, rowspan=2, sticky="nsew")
+pictureLabel = False;
+picture = False;
 
 # Layout for the description frame
 descriptionFrame = tk.Frame(master=window)
 descriptionFrame.grid(column=0, row=0, sticky="nsew")
-descriptionLabel = tk.Text(master=descriptionFrame, height=20, width=50)
+descriptionLabel = tk.Text(master=descriptionFrame, height=20, width=40)
 scroll = tk.Scrollbar(master=descriptionFrame, command=descriptionLabel.yview)
 descriptionLabel.configure(yscrollcommand=scroll.set, state="disabled", wrap=tk.WORD)
 descriptionLabel.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
@@ -58,12 +65,28 @@ def addDescriptionText(text):
     descriptionLabel.configure(state="disabled")
     descriptionLabel.see(tk.END)
 
+def setImage(image):
+    global pictureLabel, picture
+    removeImage()
+    picture = tk.PhotoImage(file="assets/images/" + image)
+    pictureLabel = tk.Label(master=pictureFrame, image=picture)
+    pictureLabel.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+def removeImage():
+    global pictureLabel
+    if pictureLabel:
+        pictureLabel.pack_forget()
+
 # Describe the location
 def describeLocation(location):
     global locations
     if location in locations:
         description = locations[location]["description"]
         addDescriptionText("\n" + description + "\n")
+        if "image" in locations[location]:
+            setImage(locations[location]["image"])
+        else:
+            removeImage()
         setActions(location)
     else:
         addDescriptionText("Error: location does not exist: " + location)
@@ -76,7 +99,7 @@ def setActions(location):
         if "verbs" not in locations[location] or len(locations[location]["verbs"]) == 0:
             addDescriptionText("\nGame over\n")
             return False
-            
+
         addActions(locations[location]["verbs"])
     else:
         addDescriptionText("Error: location does not exist: " + location)
