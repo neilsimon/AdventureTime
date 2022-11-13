@@ -1,0 +1,191 @@
+{
+  "start location": "path",
+  "path": {
+    "description": "You see two paths. You can go left or right.",
+    "verbs": {
+      "left": "left",
+      "right": "right"
+    }
+  },
+  "left": {
+    "description": "There is nothing there.",
+    "verbs": {
+      "right": "right",
+      "left": "left"
+    }
+  },
+  "right": {
+    "description": "There is a path. Do you go_right",
+    "verbs": {
+      "go_right": "go_right",
+      "go to the forest": "the forest"
+    }
+  },
+  "go_right": {
+    "description": "You walk down the path and find a field with a house on the left1 and a house on the right1. Which house do you choose?",
+    "verbs": {
+      "left": "left1",
+      "right": "right1"
+    }
+  },
+  "left1": {
+    "description": "You go to the house and look inside. You see nothing but a small fireplace",
+    "verbs": {
+      "right": "right1"
+    }
+  },
+  "right1": {
+    "description": "You go to the right house and see a small box inside. Do you look_inside the box?",
+    "verbs": {
+      "look_inside": "look_inside"
+    }
+  },
+  "look_inside": {
+    "description": "There's nohting in there but a bunch of dust. Do you keep_walking down the path?",
+    "verbs": {
+      "keep_walking": "keep_walking"
+    }
+  },
+  "keep_walking": {
+    "description": "You come to a small town. Do you enter the town?",
+    "verbs": {
+      "enter": "enter"
+    }
+  },
+  "enter": {
+    "description": "You see only a few people. Do you talk to them or keep_walking1?",
+    "verbs": {
+      "talk": "talk",
+      "keep walking": "keep_walking1"
+    }
+  },
+  "talk": {
+    "description": "You walk up to a person and ask where you are. They tell you you're on a small island in the ocean with no more than a few peolpe living on it keep_walking.",
+    "verbs": {
+      "keep walking": "keep_walking1"
+    }
+  },
+  "keep_walking1": {
+    "description": "You keep walking and see the ocean. You look left and right and see nothing but water. Do you turn_around or do you sit on the beach?",
+    "verbs": {
+      "turn around": "turn_around",
+      "sit": "sit"
+    }
+  },
+  "sit": {
+    "description": "You sit down and wonder how did you end up here and where is home? Do you get_up or do you have a nap on the beach?",
+    "verbs": {
+      "get up": "get_up1",
+      "nap": "nap"
+    }
+  },
+  "nap": {
+    "description": "You fall a sleep. When you wake up, you sit up in your bed with no memory of your dream. Do you go back to sleep or get_up1?",
+    "verbs": {
+      "sleep": "sleep",
+      "get up": "get_up"
+    }
+  },
+  "get_up1": {
+    "description": "You get up you can turn_around.",
+    "verbs": {
+      "turn_around": "turn_around"
+    }
+  },
+  "turn_around": {
+    "description": "You walk back to the small town. Do you walk_back to the small house or do you live_in the small town for the rest of your life",
+    "verbs": {
+      "walk back": "walk_back",
+      "live in": "live_in"
+    }
+  },
+  "live_in": {
+    "description": "you live_in the small town for the rest of your life"
+  },
+  "walk_back": {
+    "description": "You walk back to the small house and look inside again but the small box is gone. You look aroun and then jolt awake!",
+    "verbs": {
+      "get up": "get_up1"
+    }
+  },
+  "get_up": {
+    "description": "You look around and see your door is open. Do you go_and_look through the door or just go back to sleep?",
+    "verbs": {
+      "sleep": "sleep",
+      "go and look": "go_and_look"
+    }
+  },
+  "sleep": {
+    "description": "You go back to sleep and get killed in your sleep.",
+    "verbs": {
+      "go and look": "go_and_look"
+    }
+  },
+  "go_and_look": {
+    "description": "You look out the window and see someone walking up to your house!! Do you hide, run, or open your front door?",
+    "verbs": {
+      "hide": "hide",
+      "run": "run",
+      "door": "door"
+    }
+  },
+  "hide": {
+    "description": "You hide under your bed. The man breaks in and walks to your room do you hold your breath or run1?",
+    "verbs": {
+      "hold": "hold",
+      "run": "run"
+    }
+  },
+  "run": {
+    "description": "You make a run for it out the back door. You get shot in the back and die."
+  },
+  "door": {
+    "description": "You get shot in the face and the man runs off."
+  },
+  "hold": {
+    "description": "You hold your breath for as long as you can but you can't hold it any longer. You try do breath as quietly as you can but they hear you. Do you run1 or stay where you are?",
+    "verbs": {
+      "run": "run1",
+      "stay": "stay"
+    }
+  },
+  "run1": {
+    "description": "You make a run for it and get shot in the back 3 times. You die."
+  },
+  "stay": {
+    "description": "You stay under the bed for a few more seconds and they walk into the room again. Do you grab their legs and attack them or stay_put?",
+    "verbs": {
+      "attack": "attack",
+      "stay put": "stay_put"
+    }
+  },
+  "attack": {
+    "description": "You grab their legs and pull them to the floor. Do you punch them or run2?",
+    "verbs": {
+      "grab": "grab",
+      "run": "run2"
+    }
+  },
+  "stay_put": {
+    "description": "You stay under the bed. They hear you breathing and shoot you in the back. You die."
+  },
+  "grab": {
+    "description": "You grab the gun and shoot them in the gut 2 times. You live!",
+    "verbs": {
+      "live": "live"
+    }
+  },
+  "live": {
+    "description": "You live the rest of your days in fear wondering why that person wanted to kill you but you try wipe the thought from your mind and go back to thinking about what to do next."
+  },
+  "punch": {
+    "description": "You punch them in the face and see a gun fall out of their hand. Do you punch2 again or grab the gun?",
+    "verbs": {
+      "punch": "punch2",
+      "grab": "grab"
+    }
+  },
+  "punch2": {
+    "description": "You punch them again and they hit you back and break your jaw. They push you over and shoot you in the gut. You die."
+  }
+}
