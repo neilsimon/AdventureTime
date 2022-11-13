@@ -37,8 +37,9 @@ window.rowconfigure(1, minsize=100, weight=1)
 # Layout for image window
 pictureFrame = tk.Frame(master=window)
 pictureFrame.grid(column=1, row=0, rowspan=2, sticky="nsew")
-pictureLabel = False;
 picture = False;
+pictureLabel = tk.Label(master=pictureFrame)
+pictureLabel.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
 # Layout for the description frame
 descriptionFrame = tk.Frame(master=window)
@@ -84,17 +85,14 @@ def addDescriptionText(text):
 # Set the image displayed
 def setImage(imageFile):
     global pictureLabel, picture
-    removeImage()
     imagePath = os.path.join(settings["assetsdirectory"], "images", imageFile)
     picture = tk.PhotoImage(file=imagePath)
-    pictureLabel = tk.Label(master=pictureFrame, image=picture)
-    pictureLabel.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+    pictureLabel.configure(image=picture)
 
 # Remove the image being displayed
 def removeImage():
-    global pictureLabel
-    if pictureLabel:
-        pictureLabel.pack_forget()
+    global picture
+    picture = False
 
 # Describe the location
 def describeLocation(location):
